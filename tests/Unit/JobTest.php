@@ -14,6 +14,13 @@ test('It belongs to an employer', function () {
     // Act and Assert
     expect($job->employer->is($employer))->toBeTrue();
 });
+test('Can have tags', function () {
+    //AAA
+    $job = Job::factory()->create(); // Létrehozunk egy job-ot
+    $job->tag('Frontend'); // Job tagjét ki keressük vagy hozzá adjuk ha nincs, Ezt a Job::Model-ben található
+
+    expect($job->tags)->toHaveCount(1); // Leírjuk mire számíitunk, ami pedig az hogy van 1 tag legalább
+});
 
 
 /* test('Employer belongs to user', function () {
